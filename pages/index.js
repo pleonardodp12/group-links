@@ -8,11 +8,17 @@ const Index = ({ data }) => {
       <h1>Links groups</h1>
       <ul>
         {data.body.map(item => {
-        return (
-          <li>
-            <a href={item.primary.destino.url}>{item.primary.texto_do_botao}</a>
-          </li>
-          );
+        if(item.slice_type === 'secao'){
+          return  <h2>{item.primary.nome}</h2>
+        }
+        if(item.slice_type === 'link'){
+          return (
+            <li>
+              <a href={item.primary.destino.url}>{item.primary.texto_do_botao}</a>
+            </li>
+            );
+          }
+          return null;
         })}
       </ul>
       <pre>{JSON.stringify(data, null, 2)}</pre>
