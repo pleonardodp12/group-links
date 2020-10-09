@@ -1,12 +1,21 @@
 import React from 'react';
 import Prismic from 'prismic-javascript';
 
-const Index = (props) => {
+const Index = ({ data }) => {
   console.log('client')
   return (
-    <div style={{ backgroundColor: props.data.corfundo, color: props.data.cortexto}}>
+    <div style={{ backgroundColor: data.corfundo, color: data.cortexto}}>
       <h1>Links groups</h1>
-      <pre>{JSON.stringify(props, null, 2)}</pre>
+      <ul>
+        {data.body.map(item => {
+        return (
+          <li>
+            <a href={item.primary.destino.url}>{item.primary.texto_do_botao}</a>
+          </li>
+          );
+        })}
+      </ul>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
     
   );
