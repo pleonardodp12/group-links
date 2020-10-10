@@ -6,6 +6,7 @@ const Index = ({ data }) => {
   return (
     <div style={{ backgroundColor: data.corfundo, color: data.cortexto}}>
       <h1>Links groups</h1>
+      <img src={data.logo.url} />
       <ul>
         {data.body.map(item => {
         if(item.slice_type === 'secao'){
@@ -16,12 +17,17 @@ const Index = ({ data }) => {
             <li>
               <a href={item.primary.destino.url}>{item.primary.texto_do_botao}</a>
             </li>
-            );
-          }
-          return null;
-        })}
+          );
+        }
+        if(item.slice_type === 'image'){
+          return (
+            <img src={item.primary.imagem.url} alt="oi"/>
+          );
+        }
+        return <pre>{JSON.stringify(item)}</pre>
+        return null;
+      })}
       </ul>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
     
   );
