@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import Prismic from 'prismic-javascript';
+import { useRouter } from 'next/router'
 
 const RedirectTo = () => {
+  const router = useRouter();
   useEffect(() => {
-    
+    setTimeout(() => {
+      router.push('/')
+    }, 2000)
   }, [])
   return (
     <div>
