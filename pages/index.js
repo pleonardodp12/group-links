@@ -42,7 +42,7 @@ const Index = ({ data }) => {
       <footer className="text-center py-4 fixed inset-x-0 bottom-0">
         Projeto desenvolvido por Leonardo Dias
         <br />
-        Código fonte disponível em: 
+        Código fonte disponível em: https://github.com/pleonardodp12/group-links
       </footer>
     </div>
     
